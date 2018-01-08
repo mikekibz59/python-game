@@ -1,13 +1,10 @@
 import random
 import textwrap
 
-if __name__ == '__main__':
-    keep_playing = 'y'
-    occupants = ['enemy','frined','unoccupied']
-    width = 72
-    dotted_line = '_'* width
+
+def show_theme_message(dotted_line, width):
     print(dotted_line)
-    print("\033[1m" + "Attack of The Orcs v0.0.1: "+ "\033[0m")
+    print("\033[1m" + "Attack of The Orcs v0.0.1: " + "\033[0m")
     msg = (
         ' The war between humans and their arch enemies, Orcs, was in the '
         'offing. Sir Foo, one of the brave knights guarding the southern'
@@ -17,12 +14,28 @@ if __name__ == '__main__':
         ' a detour. As he approached the village, he saw five huts. There'
         'was no one to be seen around. Hesitantly, he decide to enter ...')
 
-    print(textwrap.fill(msg,width=width))
+    print(textwrap.fill(msg, width=width))
+def show_game_mission(dotted_line):
     print("\033[1m" + "Mission:" + "\033[0m")
     print("\t Choose a hut where Sir Foo can rest....")
-    print("\033[1m"+"Tip: " + "\033[0m" )
+    print("\033[1m" + "Tip: " + "\033[0m")
     print("Be carefull there are many enemies lurking around")
     print(dotted_line)
+
+
+if __name__ == '__main__':
+    keep_playing = 'y'
+    occupants = ['enemy','frined','unoccupied']
+    width = 72
+    dotted_line = '_'* width
+
+    #function to reveal the upcoming message
+    show_theme_message(dotted_line,width)
+
+    #function to reveal game mission
+    show_game_mission(dotted_line)
+
+
 
     while keep_playing == 'y':
         huts = []
@@ -54,4 +67,7 @@ if __name__ == '__main__':
             print("\033[1m"+ "Congratulations!! You win !!" + "\033[0m")
         print(dotted_line)
         keep_playing = input("Play again? Yes(y)/No(n)")
+
+
+
 
